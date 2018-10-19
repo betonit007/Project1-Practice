@@ -1,0 +1,54 @@
+#search {
+    padding: 10px 5px 10px 5px;
+}
+
+#videoField {
+    overflow: hidden;
+    padding: 3px;
+}
+
+button {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
+
+.gif {
+    float: left;
+    margin: 3px;
+}
+
+.input-group-append {
+    float: left;
+}   
+
+.container {
+    border: 1px solid grey;
+    
+}
+
+.saved, #clearSaved {
+    background-color: rgb(159, 152, 251);
+}
+
+#header {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 70px;
+  text-align: center;
+}
+
+.floatRight {
+    float: right;
+}
+
+
+
+
