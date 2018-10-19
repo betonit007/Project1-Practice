@@ -16,6 +16,10 @@ $("#run-search").on("click", function(event) {
             method: 'GET',
         }).done(function(result) {
             console.log(result);
+            var test = result;
+            console.log(test.response.docs[0].headline.kicker);
+            var test1 = JSON.stringify(result);
+            console.log(test1);
 
             for (var i = 0; i < 5; i++) {
       
