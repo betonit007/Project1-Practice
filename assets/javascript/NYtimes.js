@@ -9,7 +9,9 @@ $("#run-search").on("click", function(event) {
     var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
         url += '?' + $.param({
             'api-key': "b3319917b4b54c0ba4a7eb463d0099d9",
-            'q': "Jets"
+            'q': "unemployment",
+            'begin_date': "19990101",
+            'end_date': "19991231"
         });
         $.ajax({
             url: url,
@@ -17,29 +19,31 @@ $("#run-search").on("click", function(event) {
         }).done(function(result) {
             console.log(result);
             var test = result;
-            console.log(test.response.docs[0].headline.kicker);
-            var test1 = JSON.stringify(result);
-            console.log(test1);
+            console.log(test.response.docs.length);
+            
+            
+           
+            for (var i = 0; i < 10; i++) {
 
-            for (var i = 0; i < 5; i++) {
-      
-                video = response.data[i].images.original.url;
-     
-                image = response.data[i].images.original_still.url;
-     
-                rating = (response.data[i].rating).toUpperCase();
-     
-                var imagElement = $("<img>");
-                $(imagElement).attr("src", image).attr("data-img", image).attr("data-vid", video).attr("data-live", "no");
-             
-                var pImage = $("<p>");
-     
-                $(pImage).append("Rated: " + rating + "<br>").append(imagElement).addClass("gif");
-     
-              
-                $("#videoField").append(pImage);
-     
-               }
+                if (test.response.docs[i].keywords.length !== 0) {
+            
+                    headline = test.response.docs[i].headline.main;
+            
+                    // image = response.data[i].images.original_still.url;
+            
+                        //rating = (response.data[i].rating).toUpperCase();
+            
+                        var imagElement = $("<img>");
+                    // $(imagElement).attr("src", image).attr("data-img", image).attr("data-vid", video).attr("data-live", "no");
+                    
+                        var headliner = $("<p>");
+            
+                        $(headliner).append(test.response.docs[i].headline.main);
+            
+                    
+                        $("#article-section").append(headliner);
+                }
+             }
             
         }).fail(function(err) {
             throw err;
